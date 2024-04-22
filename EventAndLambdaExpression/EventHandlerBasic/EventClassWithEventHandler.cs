@@ -4,6 +4,16 @@ using System.Text;
 
 namespace EventAndLambdaExpression.EventHandlerBasic
 {
+    public class EventClassWithEventHandler
+    {
+        public event EventHandler<MyArg> OnChange = (sender, e) => { };
+
+        public void Raise()
+        {
+            OnChange(this, new MyArg(100));
+        }
+    }
+
     public class MyArg
     {
         public int Value { get; private set; }
@@ -13,15 +23,7 @@ namespace EventAndLambdaExpression.EventHandlerBasic
             Value = value;
         }
     }
-    public class EventClassWithEventHandler
-    {
-        public event EventHandler<MyArg> OnChange = (sender, e) => { };
-
-        public void Raise()
-        {
-            OnChange(this,new MyArg(100));
-        }
-    }
+    
 
     public class Subscriber
     {

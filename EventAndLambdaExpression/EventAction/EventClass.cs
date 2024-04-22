@@ -9,10 +9,12 @@ namespace EventAndLambdaExpression.EventAction
     /// </summary>
     public class EventClass
     {
+        //public Action OnChange { get; set; }
         public event Action OnChange = () => { };
 
         public void Raise()
         {
+            //OnChange?.Invoke();
             OnChange();
         }
     }
